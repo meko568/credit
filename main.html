@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Space+Grotesk:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="main">
+            <div class="box1">
+                <div class="front">
+                    <div class="circles">
+                        <div class="circle1"></div>
+                        <div class="circle2"></div>
+                    </div>
+                    <div class="number">0000 0000 0000 0000</div>
+                    <div class="name">Jane Appleseed</div>
+                    <div class="exo">
+                        <div class="mo"><span>00</span>/</div>
+                        <div class="yr"><span>00</span></div>
+                    </div>
+                </div>
+                <div class="back">
+                    <img src="images/bg-card-back.png" alt="image">
+                    <span>000</span>
+                </div>
+            </div>
+            <div class="box2">
+                <form>
+                    <div>
+                        <label for="name">cardholder name</label>
+                        <input type="text" id="name" class="name" placeholder="e.g. Jane Appleseed">
+                    </div>
+                    <div>
+                        <label for="number">card number</label>
+                        <input type="text" id="number" class="card-number" placeholder="e.g. 1234 5678 9123 0000">
+                    </div>
+                    <div class="exp">
+                        <div>
+                            <div>
+                                <div class="moyr">
+                                    <label for="exp">Exp. Date (MM/YY)</label>
+                                    <input type="text" placeholder="MM" id="exo" class="month">
+                                    <input type="text" placeholder="YY" id="exo" class="year">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="cvc">CVC</label>
+                                <input type="text" class="cvc" placeholder="e.g 123" id="cvc">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="confirm">confirm</div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>

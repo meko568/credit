@@ -1,0 +1,256 @@
+:root {
+    --White: hsl(0, 0%, 100%);
+    --Light-grayish-violet: hsl(270, 3%, 87%);
+    --Dark-grayish-violet: hsl(279, 6%, 55%);
+    --Very-dark-violet: hsl(278, 68%, 11%)
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Red Hat Text", serif;
+    margin: 0;
+}
+
+.main {
+    display: flex;
+    height: 100vh;
+}
+
+.box1 {
+    background-image: url(images/bg-main-desktop.png);
+    position: relative;
+    width: 300px;
+}
+
+.box1 .front {
+    background-image: url(images/bg-card-front.png);
+    border-radius: 6px;
+    position: absolute;
+    top: 30%;
+    left: 100%;
+    transform: translatex(-70%);
+    width: 300px;
+    height: 160px;
+    padding: 10px;
+    color: white;
+}
+
+.circles {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 5px 10px 40px 0;
+}
+
+.front .circle1 {
+    background-color: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+.front .circle2 {
+    width: 10px;
+    height: 10px;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 1px solid white;
+}
+
+.box1 .front .name {
+    font-size: 15px;
+    transform: translateY(20px);
+}
+
+.exo {
+    display: flex;
+    margin-left: auto;
+    width: fit-content;
+}
+
+.back {
+    position: absolute;
+    left: 100%;
+    transform: translatex(-50%);
+    top: 60%;
+}
+
+img {
+    width: 250px;
+}
+
+.back span {
+    position: absolute;
+    top: 55px;
+    right: 40px;
+    color: white;
+}
+
+.box2 {
+    position: relative;
+}
+
+.box2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-0%, -50%);
+    width: 400px;
+}
+
+input {
+    display: block;
+    padding: 10px;
+    width: 100%;
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+.exp>div {
+    display: flex;
+}
+
+.confirm,
+.conta {
+    background-color: var(--Very-dark-violet);
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.box2 :not(.exp) input {
+    margin-bottom: 20px;
+}
+
+.moyr {
+    margin-right: 20px;
+}
+
+input {
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.unvalid {
+    position: relative;
+}
+
+.unvalid::after {
+    content: "wrong format";
+    position: absolute;
+    color: red;
+    top: 0px;
+    right: 0;
+}
+
+input:focus {
+    outline-color: black;
+}
+
+.unvalid input:focus {
+    outline-color: red;
+}
+
+.requer {
+    position: relative;
+}
+
+.requer::after {
+    content: "can't be blank";
+    position: absolute;
+    color: red;
+    top: 0px;
+    right: 0;
+}
+
+.unvalidmo,
+.requermo,
+.requeryr,
+.unvalidyr,
+.unvalidcvc,
+.requercvc {
+    position: relative;
+}
+
+.requermo::before,
+.requeryr::before,
+.requercvc::before {
+    content: "can't be blank";
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    color: red;
+}
+
+.unvalidmo::before,
+.unvalidyr::before,
+.unvalidcvc::before {
+    content: "unvalid field";
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    color: red;
+}
+
+.unvalidcvc::before,
+.requercvc::before {
+    bottom: 20px;
+}
+
+.con {
+    position: relative;
+}
+
+.con::after {
+    content: "contain the form";
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: black;
+}
+
+.box2 {
+    text-align: center;
+}
+
+.p {
+    color: #ccc
+}
+
+@media (max-width:991px) {
+    .main {
+        flex-direction: column;
+    }
+
+    .box1 {
+        height: 300px;
+        width: 100%;
+        background-size: cover;
+    }
+
+    .front {
+        top: 55% !important;
+        left: 55% !important;
+        z-index: 2;
+    }
+
+    .back {
+        left: 50%;
+        top: 30%;
+    }
+
+    .box2 {
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
