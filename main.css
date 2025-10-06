@@ -2,114 +2,179 @@
     --White: hsl(0, 0%, 100%);
     --Light-grayish-violet: hsl(270, 3%, 87%);
     --Dark-grayish-violet: hsl(279, 6%, 55%);
-    --Very-dark-violet: hsl(278, 68%, 11%)
+    --Very-dark-violet: hsl(278, 68%, 11%);
+    --gradient: linear-gradient(135deg, hsl(249, 99%, 64%), hsl(278, 94%, 30%));
+    --transition: all 0.3s ease;
 }
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    font-family: "Red Hat Text", serif;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--Very-dark-violet);
+    background-color: var(--White);
+    min-height: 100vh;
     margin: 0;
 }
 
 .main {
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
+    position: relative;
 }
 
+/* Card Styling */
 .box1 {
     background-image: url(images/bg-main-desktop.png);
+    background-size: cover;
+    background-position: center;
     position: relative;
-    width: 300px;
+    width: 40%;
+    min-height: 100vh;
 }
 
 .box1 .front {
     background-image: url(images/bg-card-front.png);
-    border-radius: 6px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
     position: absolute;
-    top: 30%;
-    left: 100%;
-    transform: translatex(-70%);
-    width: 300px;
-    height: 160px;
-    padding: 10px;
-    color: white;
+    top: 25%;  /* Adjusted from 20% to 15% to move higher */
+    left: 70%;
+    transform: translateX(-70%);
+    width: 350px;
+    height: 190px;
+    padding: 20px;
+    color: var(--White);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    z-index: 2;
 }
 
 .circles {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin: 5px 10px 40px 0;
+    gap: 12px;
+    margin-bottom: 30px;
 }
 
 .front .circle1 {
-    background-color: white;
-    width: 25px;
-    height: 25px;
+    background-color: var(--White);
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
 }
 
 .front .circle2 {
-    width: 10px;
-    height: 10px;
+    width: 14px;
+    height: 14px;
     background-color: transparent;
     border-radius: 50%;
-    border: 1px solid white;
+    border: 1px solid var(--White);
 }
 
-.box1 .front .name {
-    font-size: 15px;
-    transform: translateY(20px);
+.card-number {
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
 }
 
-.exo {
+.card-details {
     display: flex;
-    margin-left: auto;
-    width: fit-content;
+    justify-content: space-between;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.9;
 }
 
 .back {
     position: absolute;
-    left: 100%;
-    transform: translatex(-50%);
-    top: 60%;
+    left: 40%;
+    transform: translateX(-40%);
+    top:45% !important;  /* Adjusted from 55% to 50% to move higher */
+    transition: var(--transition);
 }
 
-img {
-    width: 250px;
+.back img {
+    width: 350px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
 }
 
 .back span {
     position: absolute;
-    top: 55px;
-    right: 40px;
-    color: white;
+    top: 85px;
+    right: 45px;
+    color: var(--White);
+    font-size: 14px;
+    letter-spacing: 1px;
 }
 
+/* Form Styling */
 .box2 {
     position: relative;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    flex-wrap: wrap;
 }
 
-.box2 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-0%, -50%);
-    width: 400px;
-}
-
-input {
-    display: block;
-    padding: 10px;
+.form-container {
+    max-width: 400px;
     width: 100%;
 }
 
 label {
-    margin-bottom: 10px;
     display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--Very-dark-violet);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+}
+
+/* Style for required field indicators */
+label.required::after {
+    content: '*';
+    color: #ff5252;
+    margin-left: 4px;
+    font-weight: 700;
+}
+
+/* Hover state for better interactivity */
+label:hover {
+    color: var(--Dark-grayish-violet);
+}
+
+/* Focus state for better accessibility */
+label:focus-within {
+    color: var(--Very-dark-violet);
+}
+
+/* Style for form group labels */
+.form-group label {
+    margin-bottom: 8px;
+}
+
+/* Style for error state labels */
+label.error {
+    color: #ff5252;
+}
+
+/* Style for success state labels */
+label.valid {
+    color: #4caf50;
 }
 
 .exp>div {
@@ -120,10 +185,40 @@ label {
 .conta {
     background-color: var(--Very-dark-violet);
     color: white;
-    border-radius: 10px;
-    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    padding: 15px 25px;
+    font-size: 16px;
+    font-weight: 600;
     text-align: center;
     cursor: pointer;
+    width: 100%;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 20px;
+}
+
+.confirm:hover,
+.conta:hover {
+    background: var(--gradient);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.confirm:active,
+.conta:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.confirm:disabled,
+.conta:disabled {
+    background-color: var(--Dark-grayish-violet);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    opacity: 0.7;
 }
 
 .box2 :not(.exp) input {
@@ -135,8 +230,64 @@ label {
 }
 
 input {
-    border: 1px solid black;
-    border-radius: 10px;
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--Light-grayish-violet);
+    border-radius: 8px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    color: var(--Very-dark-violet);
+    background-color: var(--White);
+    transition: var(--transition);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--Very-dark-violet);
+    box-shadow: 0 0 0 2px rgba(121, 40, 202, 0.2);
+}
+
+input::placeholder {
+    color: var(--Dark-grayish-violet);
+    opacity: 0.7;
+}
+
+input:disabled {
+    background-color: var(--Light-grayish-violet);
+    cursor: not-allowed;
+}
+
+/* Specific styling for number input spinners */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Styling for error states */
+input.error {
+    border-color: #ff5252;
+    background-color: #fff8f8;
+}
+
+input.error:focus {
+    box-shadow: 0 0 0 2px rgba(255, 82, 82, 0.2);
+}
+
+/* Styling for valid input */
+input.valid {
+    border-color: #4caf50;
+    background-color: #f8fff8;
+}
+
+/* Focus styling for valid input */
+input.valid:focus {
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
 }
 
 .unvalid {
@@ -148,16 +299,10 @@ input {
     position: absolute;
     color: red;
     top: 0px;
-    right: 0;
+    right: -20px;
 }
 
-input:focus {
-    outline-color: black;
-}
-
-.unvalid input:focus {
-    outline-color: red;
-}
+/* Focus styles are now handled in the main input block */
 
 .requer {
     position: relative;
@@ -168,7 +313,7 @@ input:focus {
     position: absolute;
     color: red;
     top: 0px;
-    right: 0;
+    right: -20px;
 }
 
 .unvalidmo,
@@ -221,12 +366,11 @@ input:focus {
 .box2 {
     text-align: center;
 }
-
 .p {
     color: #ccc
 }
 
-@media (max-width:991px) {
+@media (max-width: 991px) {
     .main {
         flex-direction: column;
     }
@@ -235,22 +379,29 @@ input:focus {
         height: 300px;
         width: 100%;
         background-size: cover;
+        min-height: 350px;
     }
 
     .front {
-        top: 55% !important;
+        top: 35% !important; 
         left: 55% !important;
         z-index: 2;
+        width: 300px !important;
     }
 
     .back {
         left: 50%;
-        top: 30%;
+        top: 5% !important;
     }
-
+    .back img{
+        width: 300px !important;
+    }
+    .back span{
+        top:70px;
+    }
     .box2 {
-        top: 60%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translateX(-50%);
+        width: 100%;
     }
 }
